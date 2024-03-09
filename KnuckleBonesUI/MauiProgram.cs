@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using KnuckleBonesUI.ViewModel;
+using Microsoft.Extensions.Logging;
 
 namespace KnuckleBonesUI;
 
@@ -14,6 +15,9 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
+
+		builder.Services.AddSingleton<GameUI>();
+		builder.Services.AddSingleton<GameViewModel>();
 
 #if DEBUG
 		builder.Logging.AddDebug();

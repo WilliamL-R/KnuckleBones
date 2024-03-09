@@ -21,9 +21,10 @@ public partial class MainPage : ContentPage
 		SemanticScreenReader.Announce(CounterBtn.Text);
 	}
 
-	private void OnNavigationClicked(object sender, EventArgs e)
+	private async void OnNavigationClicked(object sender, EventArgs e)
 	{
-		DisplayAlert("You did it!", "Congratulations!", "Go Away");
+		// Name is gathered from the Routing in AppShell.xaml.cs
+		await Shell.Current.GoToAsync("GameUI");
 	}
 }
 

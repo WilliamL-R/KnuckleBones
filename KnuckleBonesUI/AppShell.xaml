@@ -4,7 +4,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:KnuckleBonesUI"
-    Shell.FlyoutBehavior="Flyout">
+    Shell.FlyoutBehavior="Flyout"
+    Shell.NavBarIsVisible="False">
 
     <ShellContent
         Title="Home"
@@ -12,7 +13,7 @@
         Route="MainPage" />
 
     <ShellContent
-        Title="New Page"
-        ContentTemplate="{DataTemplate local:NewPage1}"
-        Route="NewPage" />
+        Title="Game"
+        ContentTemplate="{DataTemplate local:GameUI}"
+        Route="GameUI" />
 </Shell>
