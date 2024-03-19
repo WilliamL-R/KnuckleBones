@@ -24,5 +24,30 @@ namespace KnuckleBonesUI.ViewModel
 			var rolledDice = random.Next(1, 7);
 			RolledNumber = rolledDice;
 		}
+
+		[RelayCommand]
+		void AssignGrid(int columnSelected)
+		{
+			var row = GetNextRow(columnSelected);
+			if (row == -1)
+			{
+				// Column is full.
+				//TODO: Handle Alerting the player in seperate method.
+				return;
+			}
+			PlayerGrid[row, columnSelected] = RolledNumber;
+		}
+
+		private int GetNextRow(int columnSelected)
+		{
+			for (int row = 0; row < PlayerGrid.GetLength(0); row++)
+			{
+				if (PlayerGrid[row, columnSelected] == 0)
+				{
+					return row;
+				}
+			}
+			return -1;
+		}
 	}
 }
